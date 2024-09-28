@@ -1,0 +1,8 @@
+spring:
+  r2dbc:
+    url: r2dbc:pool:mysql://localhost:3306/spring-kotlin-examples?zeroDateTimeBehavior=convertToNull&useSSL=false&useServerPrepareStatement=true
+    username: root
+    password: rootp@assword
+  jpa:
+    hibernate:
+      ddl-auto: create
