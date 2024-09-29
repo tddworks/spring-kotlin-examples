@@ -28,18 +28,22 @@ class RestUsersApi(
         }
     }
 
+    @PutMapping
     override suspend fun updateUser(user: User): User {
         return users.save(user)
     }
 
+    @DeleteMapping("/{id}")
     override suspend fun deleteUser(id: Long) {
         users.deleteById(id)
     }
 
+    @GetMapping
     override suspend fun getUsers(): List<User> {
         return users.findAll().toList()
     }
 
+    @GetMapping("/flow")
     override fun getFlowUsers(): Flow<User> {
         return users.findAll()
     }
