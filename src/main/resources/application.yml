@@ -1,8 +1,16 @@
 spring:
-  r2dbc:
-    url: r2dbc:pool:mysql://localhost:3306/spring-kotlin-examples?zeroDateTimeBehavior=convertToNull&useSSL=false&useServerPrepareStatement=true
-    username: root
-    password: rootp@assword
+#  r2dbc:
+#    url: r2dbc:pool:mysql://localhost:3306/spring-kotlin-examples?zeroDateTimeBehavior=convertToNull&useSSL=false&useServerPrepareStatement=true
+#    username: root
+#    password: rootp@assword
+  datasource:
+    url: jdbc:mysql://${MYSQL_HOST:127.0.0.1}:3306/spring-kotlin-examples?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true
+    username: ${MYSQL_USER:root}
+    password: ${MYSQL_PASSWORD:rootp@assword}
   jpa:
     hibernate:
       ddl-auto: create
+    database-platform: org.hibernate.dialect.MySQLDialect
+    show-sql: true
+  modulith:
+    republish-outstanding-events-on-restart: true
